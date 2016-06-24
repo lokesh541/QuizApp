@@ -5,12 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     int score = 0;
-    int correctAnswer1 = 15;  //sum of first five natural numbers
-
+    String correctAnswer1 = "15";  //sum of first five natural numbers
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,9 +21,12 @@ public class MainActivity extends AppCompatActivity {
     public void grader(View view) {
 
         EditText answerOneText = (EditText) findViewById(R.id.answer_one);
-        int answer_one = Integer.parseInt(answerOneText.getText().toString());
-        
-        score =  getScore(answer_one);
+        String answer_one = answerOneText.getText().toString().trim();
+
+        RadioButton radioButton = (RadioButton) findViewById(R.id.question_2_option_3);
+        boolean checked = radioButton.isChecked();
+
+        score = getScore(answer_one,checked);
         Context context = getApplicationContext();
         CharSequence text = "score is :" +score;
         int duration = Toast.LENGTH_SHORT;
@@ -32,12 +35,15 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
 
     }
+     private  int getScore(String answer_one,boolean checked) {
 
+         if (answer_one.equals(correctAnswer1)) {
+             score = score + 1;
+         }
+         if (checked){
+             score = score+1;
+         }
 
-    public int getScore(int answer_one) {
-        if (answer_one == correctAnswer1) {
-            score = score + 1;
-        }
-        return score;
-    }
+         return  score;
+     }
 }
