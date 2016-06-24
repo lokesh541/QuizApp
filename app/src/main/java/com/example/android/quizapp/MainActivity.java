@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
         EditText answerOneText = (EditText) findViewById(R.id.answer_one);
         int answer_one = Integer.parseInt(answerOneText.getText().toString());
+        
         score =  getScore(answer_one);
-
         Context context = getApplicationContext();
         CharSequence text = "score is :" +score;
         int duration = Toast.LENGTH_SHORT;
