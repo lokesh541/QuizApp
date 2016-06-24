@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void submitQuiz(View view) {
+    public void grader(View view) {
 
         //Response for the first question
         EditText answerField = (EditText) findViewById(R.id.question_1_answer);
