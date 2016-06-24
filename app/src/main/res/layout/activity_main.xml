@@ -168,7 +168,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="24dp"
-            android:onClick="submitQuiz"
+            android:onClick="grader"
             android:text="submit" />
     </LinearLayout>
 </ScrollView>
